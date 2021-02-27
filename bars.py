@@ -12,6 +12,7 @@ class Bar(Turtle):
         self.segments = []
         self.create_bar(side)
 
+    # Creating a bar section
     def create_bar(self, side: str):
         positions = self.create_positions(side)
 
