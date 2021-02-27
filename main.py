@@ -10,14 +10,24 @@ screen.bgcolor("black")
 screen.title("My Pong Game")
 screen.tracer(0)
 
+# Created Classes
 split = Splitline()
+player1 = Bar("left")
+player2 = Bar("right")
+
+# Class functions being used
 split.draw_line()
 
-left_bar = Bar("left")
-right_bar = Bar("right")
+# Defining button listenings
+screen.listen()
+screen.onkeypress(player1.move_up, "w")
+screen.onkeypress(player1.move_down, "s")
+screen.onkeypress(player2.move_up, "Up")
+screen.onkeypress(player2.move_down, "Down")
 
 game_on = True
 while game_on:
     screen.update()
+    # time.sleep(0.05)
 
 screen.mainloop()

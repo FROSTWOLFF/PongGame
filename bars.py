@@ -3,6 +3,7 @@ from turtle import Turtle, Screen
 # POSITIONS = [(-280, -20), (-280, 0), (-280, 20)]
 BAR_LENGTH = 4
 BAR_POS = 560
+BAR_SPEED = 42
 
 
 class Bar(Turtle):
@@ -20,8 +21,8 @@ class Bar(Turtle):
     @staticmethod
     def create_positions(side: str) -> list:
         positions = []
-        y = -20
         x = BAR_POS
+        y = -20
 
         if side == "left":
             x = -x
@@ -43,5 +44,13 @@ class Bar(Turtle):
 
         self.segments.append(new_segment)
 
-    # def bar_move():
-    #     pass
+    # Moving the bar
+    def move_up(self):
+        for seg in self.segments:
+            seg.setheading(90)
+            seg.forward(BAR_SPEED)
+
+    def move_down(self):
+        for seg in self.segments:
+            seg.setheading(270)
+            seg.forward(BAR_SPEED)
