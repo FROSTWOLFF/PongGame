@@ -1,4 +1,5 @@
 from turtle import Turtle, Screen
+import time
 import random
 
 
@@ -13,9 +14,17 @@ class Ball(Turtle):
         self.set_start_heading()
 
     def set_start_heading(self):
-        # rand_heading = random.randrange(100, 260, 10)  # Angle
-        rand_heading = 150
+        # direction = random.choice(["left", "right"])
+        # if direction == "left":
+        #
+        # elif direction == "right":
+        #     rand_heading = random.randrange(60, -60, 10)  # Angle
+        rand_heading = random.randrange(120, 240, 10)  # Angle
         self.setheading(rand_heading)
+
+    def reset(self):
+        self.set_start_heading()
+        self.setpos(0, 0)
 
     def wall_col_top(self):
         heading = self.heading()

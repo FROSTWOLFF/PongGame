@@ -2,6 +2,7 @@ from turtle import Turtle, Screen
 from splitline import Splitline
 from bars import Bar
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 BALL_SPEED = 1.3
@@ -13,11 +14,16 @@ screen.bgcolor("black")
 screen.title("My Pong Game")
 screen.tracer(0)
 
+
 # Created Classes
 split = Splitline()
 player1 = Bar("left")
 player2 = Bar("right")
 ball = Ball()
+player1_board = Scoreboard("left")
+player1_board.update_scoreboard()
+player2_board = Scoreboard("right")
+player2_board.update_scoreboard()
 
 # Class functions being used
 split.draw_line()
@@ -40,7 +46,7 @@ while game_on:
     # Bar collision check player1
     for seg in player1.segments:
         segment_pos = seg.position()
-        if ball.distance(segment_pos) < 25:
+        if ball.distance(segment_pos) < 35:
             ball.bar_col_left()
             BALL_SPEED += 0.1
             print("collided")
@@ -48,7 +54,7 @@ while game_on:
     # Bar collision check player2
     for seg in player2.segments:
         segment_pos = seg.position()
-        if ball.distance(segment_pos) < 25:
+        if ball.distance(segment_pos) < 35:
             ball.bar_col_right()
             BALL_SPEED += 0.1
             print("collided")
@@ -59,6 +65,20 @@ while game_on:
 
     elif ball.ycor() < -280:
         ball.wall_col_bot()
+
+    if ball.xcor() > 620:
+        player1_board.increase_score()
+        ball.reset()
+        time.sleep(0.5)
+        BALL_SPEED = 1.3
+
+    elif ball.xcor() < -620:
+        player2_board.increase_score()
+        ball.reset()
+        time.sleep(0.5)
+        BALL_SPEED = 1.3
+
+        # game_on = False
 
     # time.sleep(0.01)
 
