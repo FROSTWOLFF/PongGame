@@ -40,24 +40,26 @@ while game_on:
     # Bar collision check player1
     for seg in player1.segments:
         segment_pos = seg.position()
-        if ball.distance(segment_pos) < 2-:
-            ball.wall_col_left()
+        if ball.distance(segment_pos) < 25:
+            ball.bar_col_left()
+            BALL_SPEED += 0.1
             print("collided")
 
+    # Bar collision check player2
     for seg in player2.segments:
         segment_pos = seg.position()
-        if ball.distance(segment_pos) < 20:
-            ball.wall_col_right()
+        if ball.distance(segment_pos) < 25:
+            ball.bar_col_right()
+            BALL_SPEED += 0.1
             print("collided")
 
     # Wall collision check
     if ball.ycor() > 280:
         ball.wall_col_top()
-        BALL_SPEED += 0.1
+
     elif ball.ycor() < -280:
         ball.wall_col_bot()
-        BALL_SPEED += 0.1
 
-    # time.sleep(0.05)
+    # time.sleep(0.01)
 
 screen.mainloop()

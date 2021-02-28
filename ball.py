@@ -28,12 +28,12 @@ class Ball(Turtle):
         heading -= (180 - step) * 2
         self.setheading(heading)
 
-    def wall_col_left(self):
+    def bar_col_left(self):
         heading = self.heading()
-        heading = (180 - heading)
+        heading = 180 - heading
         self.setheading(heading)
 
-    def wall_col_right(self):
+    def bar_col_right(self):
         heading = self.heading()
         heading += (90 - heading) * 2
         self.setheading(heading)
