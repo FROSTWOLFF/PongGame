@@ -32,6 +32,7 @@ screen.onkeypress(player2.move_down, "Down")
 game_on = True
 while game_on:
     screen.update()
+    ball.forward(1.3)
     # time.sleep(0.05)
 
 screen.mainloop()
