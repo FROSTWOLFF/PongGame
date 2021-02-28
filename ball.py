@@ -13,8 +13,8 @@ class Ball(Turtle):
         self.set_start_heading()
 
     def set_start_heading(self):
-        rand_heading = random.randrange(90, 270, 10)  # Angle
-        # rand_heading = 210
+        # rand_heading = random.randrange(100, 260, 10)  # Angle
+        rand_heading = 150
         self.setheading(rand_heading)
 
     def wall_col_top(self):
@@ -26,4 +26,14 @@ class Ball(Turtle):
         heading = self.heading()
         step = 360 - self.heading()
         heading -= (180 - step) * 2
+        self.setheading(heading)
+
+    def wall_col_left(self):
+        heading = self.heading()
+        heading = (180 - heading)
+        self.setheading(heading)
+
+    def wall_col_right(self):
+        heading = self.heading()
+        heading += (90 - heading) * 2
         self.setheading(heading)

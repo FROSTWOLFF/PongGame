@@ -3,7 +3,7 @@ from turtle import Turtle, Screen
 # POSITIONS = [(-280, -20), (-280, 0), (-280, 20)]
 BAR_LENGTH = 4
 BAR_POS = 560
-BAR_SPEED = 42
+BAR_SPEED = 50
 
 
 class Bar(Turtle):
