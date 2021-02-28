@@ -33,6 +33,11 @@ game_on = True
 while game_on:
     screen.update()
     ball.forward(1.3)
+    # Ball wall collision check
+    if ball.ycor() > 280:
+        ball.wall_col_top()
+    elif ball.ycor() < -280:
+        ball.wall_col_bot()
     # time.sleep(0.05)
 
 screen.mainloop()
