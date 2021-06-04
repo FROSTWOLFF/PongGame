@@ -46,7 +46,7 @@ while game_on:
     # Bar collision check player1
     for seg in player1.segments:
         segment_pos = seg.position()
-        if ball.distance(segment_pos) < 35:
+        if ball.distance(segment_pos) < 30:
             ball.bar_col_left()
             BALL_SPEED += 0.1
             print("collided")
@@ -54,7 +54,7 @@ while game_on:
     # Bar collision check player2
     for seg in player2.segments:
         segment_pos = seg.position()
-        if ball.distance(segment_pos) < 35:
+        if ball.distance(segment_pos) < 30:
             ball.bar_col_right()
             BALL_SPEED += 0.1
             print("collided")
